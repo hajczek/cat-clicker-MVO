@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cat Clicker</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/reset.css">
+
+    </head>
+    <body>
+        <div id="content">           
+            <h1 id="title">CAT CLICKER</h1>
+            <div id="list-of-cats"></div>
+        
+            <div id="displayed-cat">
+                <h2 id="name-of-cat"></h2>
+                <p id="click-info">How many times cat <span id="name"></span> was clicked: <span id="cat-click-counter"></span></p>
+                <img id="image-of-cat" src="" alt="Cat">
+                
+                <button type="button" id="admin">Admin</button>
+                
+                <div id="admin-area">
+                    <label for="edit-name-cat">Name</label>
+                    <input id="edit-name-cat" type="text" value=""/>
+                    
+                    <label for="edit-img-url">ImgURL</label>
+                    <input id="edit-img-url" type="text" value=""/>
+                    
+                    <label for="edit-clicks-number">Clicks</label>
+                    <input id="edit-clicks-number" type="text" value=""/>
+                    
+                    <button type="button" id="cancel">Cancel</button>
+                    <button type="button" id="save">Save</button>
+                </div>
+                
+            </div>
+            <p class="info-about-photos">Cat's photos author is <a href="https://www.flickr.com/photos/poplinre">Ryan Poplin</a></p>
+        </div>
+    
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/handlebarsjs/2.0.0/handlebars.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

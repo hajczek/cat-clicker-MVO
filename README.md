@@ -9,7 +9,7 @@ Aplication 'Cat clicker' based on design patern MVO.
 2. Now you can click in cat image - every click will be added to numbers of clicks.
 3. You can change data choosen of cat - to  make this you must click button 'Admin'. After this you'll see input field with current:
 - name of cat,
-- numbers of clicks.
+- number of clicks.
 4. Now you can change these elements. 
 5. To save changed data you must click on button Save.
 6. To close admin panel you must click on button Cancel.

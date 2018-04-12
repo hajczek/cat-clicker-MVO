@@ -28,7 +28,7 @@ Aplication 'Cat clicker' based on design patern MVO.
 
 ## LINK TO APPLICATION ONLINE
 
-[Feed Reader Testing](https://hajczek.github.io/cat-clicker-MVO/)
+[Cat Clicker](https://hajczek.github.io/cat-clicker-MVO/)
 
 ## LICENSE
 The MIT License - See [license.md](https://github.com/hajczek/cat-clicker-MVO/blob/master/license/License.md)

@@ -25,7 +25,7 @@ $(function(){
         },
         getDisplayedCat: function() {
             return model.displayedCat;
-        }, 
+        },
         putDisplayedCat: function(cat){
             model.displayedCat = cat;
         },
@@ -51,8 +51,12 @@ $(function(){
                 
                 catLink.addEventListener("click", (function(cat){
                     return function(){
+                        let adminArea = document.getElementById("admin-area");
+                        
                         octopus.putDisplayedCat(cat);
                         displayedCatView.render();
+                        adminArea.style.display = 'none';
+                        
                     }
                 })(cat));
                 catOnList.appendChild(catLink);                 
@@ -111,12 +115,11 @@ $(function(){
         
         render: function(){
             let allCats = octopus.getAllCats();
-            let displayedCat = octopus.getDisplayedCat();
             let editNameCat = document.getElementById("edit-name-cat");
             let editClicksNumber = document.getElementById("edit-clicks-number");
             let editImgUrl = document.getElementById("edit-img-url");
        
-            this.saveBtn.addEventListener("click", function(){                
+            this.saveBtn.addEventListener("click", function(){
                 this.catName = document.getElementById("name-of-cat");                
                 this.nameForSpan = document.getElementById("name");                
                 this.catClickCounter = document.getElementById("cat-click-counter");
@@ -131,17 +134,51 @@ $(function(){
                 localStorage.setItem('name', changedCatName);
                 localStorage.setItem('clicks', changedCatClicks);
                 
-                /*changedCatName = '';
-                changedCatClicks = ''; */
+                let cat = octopus.getDisplayedCat();                
+                let displayedCatIndex = allCats.indexOf(cat);
+
+                console.log(displayedCatIndex);
                 
-                // TODO: Put the `changedCatName`, `changedCatClicks` in cats array ....
-                
-               // model.cats[displayedCat.index].push(changedCatName, changedCatClicks);
+                let newName = localStorage.getItem('name');
+                let newClicks = localStorage.getItem('clicks');
                 
                 console.log(localStorage.getItem('name'));
                 console.log(localStorage.getItem('clicks'));
+                
+                /*changedCatName = '';
+                changedCatClicks = ''; */
+                                
+                let newObjectCat = {name: newName, clicks: newClicks};
+                
+                console.log(newObjectCat);
+                console.log(allCats);
+                
+                model.cats[displayedCatIndex] = newObjectCat;
+                
+                let catOnList = document.getElementById("list-of-cats");
+                catOnList.innerHTML = "";
+                
+                model.cats.forEach(function(cat) {                
+                    let catLink = document.createElement("p");
+                    catLink.innerHTML = cat.name + ' »';
+
+                    catLink.addEventListener("click", (function(cat){
+                        return function(){
+                            let adminArea = document.getElementById("admin-area");
+                            octopus.putDisplayedCat(cat);
+                            adminArea.style.display = 'none';
+
+                        }
+                    })(cat));
+                    catOnList.appendChild(catLink);                 
+                });
+            }); 
             
-            });            
+            this.catImage = document.getElementById("image-of-cat");     
+            
+            this.catImage.addEventListener("click", function(){
+                    newClicks = newClicks + 1;
+            });
         }
     };
     

@@ -161,6 +161,7 @@ $(function(){
                         return function(){
                             let adminArea = document.getElementById("admin-area");
                             octopus.putDisplayedCat(cat);
+                            displayedCatView.render();
                             adminArea.style.display = 'none';
 
                         }

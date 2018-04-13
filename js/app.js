@@ -1,5 +1,5 @@
 $(function(){
-    // Sets all elements for models
+    // Sets all elements for model
     let model = {
         displayedCat: null,
         cats: [
@@ -63,7 +63,7 @@ $(function(){
         }
     };
     
-    // Displays data of clicked cat on page - name, image and number o clicks
+    // Displays data of clicked cat on page - name, image and number of clicks
     let displayedCatView = {
         init: function() {          
             this.catName = document.getElementById("name-of-cat");
@@ -93,10 +93,10 @@ $(function(){
             this.adminBtn = document.getElementById("admin");  
             this.cancelBtn = document.getElementById("cancel");
             this.saveBtn = document.getElementById("save");
+            
             let editNameCat = document.getElementById("edit-name-cat");
             let editClicksNumber = document.getElementById("edit-clicks-number");
-            let editImageCat = document.getElementById("edit-img-url");
-            
+            let editImageCat = document.getElementById("edit-img-url");            
             let adminArea = document.getElementById("admin-area");
             
             this.adminBtn.addEventListener("click", function(){
@@ -135,6 +135,7 @@ $(function(){
                 this.catClickCounter.innerHTML = changedCatClicks;
                 this.catImage.innerHTML = changedCatImage;
                 
+                //Saved new data in localStorage
                 localStorage.setItem('name', changedCatName);
                 localStorage.setItem('clicks', changedCatClicks);
                 localStorage.setItem('image', changedCatImage);
@@ -163,7 +164,6 @@ $(function(){
                             octopus.putDisplayedCat(cat);
                             displayedCatView.render();
                             adminArea.style.display = 'none';
-
                         }
                     })(cat));
                     catOnList.appendChild(catLink);                 

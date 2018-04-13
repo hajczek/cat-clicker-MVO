@@ -95,6 +95,7 @@ $(function(){
             this.saveBtn = document.getElementById("save");
             let editNameCat = document.getElementById("edit-name-cat");
             let editClicksNumber = document.getElementById("edit-clicks-number");
+            let editImageCat = document.getElementById("edit-img-url");
             
             let adminArea = document.getElementById("admin-area");
             
@@ -102,6 +103,7 @@ $(function(){
                 adminArea.style.display = "block";
                 editNameCat.value = model.displayedCat.name;
                 editClicksNumber.value = model.displayedCat.clicks;
+                editImageCat.value = model.displayedCat.image;
             });
             
             this.cancelBtn.addEventListener("click", function(){
@@ -121,8 +123,8 @@ $(function(){
             this.saveBtn.addEventListener("click", function(){
                 this.catName = document.getElementById("name-of-cat");                
                 this.nameForSpan = document.getElementById("name");                
-                this.catClickCounter = document.getElementById("cat-click-counter");                
-                this.catImage = document.getElementById("image-of-cat");
+                this.catClickCounter = document.getElementById("cat-click-counter");
+                this.catImage = document.getElementById("image-of-cat"); 
                 
                 let changedCatName = editNameCat.value;
                 let changedCatClicks = editClicksNumber.value;
@@ -139,22 +141,13 @@ $(function(){
                 
                 let cat = octopus.getDisplayedCat();                
                 let displayedCatIndex = allCats.indexOf(cat);
-
-                /* console.log(displayedCatIndex); */
                 
                 let newName = localStorage.getItem('name');
                 let newClicks = localStorage.getItem('clicks');
                 let newImage = localStorage.getItem('image');
-                
-                /* console.log(localStorage.getItem('name'));
-                console.log(localStorage.getItem('clicks')); */
                                                                 
                 let newObjectCat = {name: newName, clicks: newClicks, image: newImage};
-                
-                /* console.log(newObjectCat);
-                console.log(allCats);
-                console.log(parseInt(newClicks,10) + 1); */
-                
+                    
                 model.cats[displayedCatIndex] = newObjectCat;
                 
                 let catOnList = document.getElementById("list-of-cats");
@@ -176,7 +169,7 @@ $(function(){
                 });
                 
                 model.displayedCat.name = newName;
-                model.displayedCat.clicks = parseInt(newClicks,10) + 1;
+                model.displayedCat.clicks = parseInt(newClicks);
                 model.displayedCat.image = newImage;
             }); 
         }

@@ -17,8 +17,7 @@ $(function(){
             model.displayedCat = model.cats[0];
             catsListView.init();
             displayedCatView.init();
-            updateCat.init();
-            
+            updateCat.init();            
         },
         getAllCats: function() {
             return model.cats;
